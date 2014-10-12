@@ -1,18 +1,18 @@
 Summary:	Networking support for GLib
 Name:		glib-networking
-Version:	2.40.1
+Version:	2.42.0
 Release:	1
 License:	LGPL v2
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/glib-networking/2.40/%{name}-%{version}.tar.xz
-# Source0-md5:	505f8a40fad96944b292d1c48f4e5569
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/glib-networking/2.42/%{name}-%{version}.tar.xz
+# Source0-md5:	d1935e6974da7f39d265303c87a8389b
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
-BuildRequires:	glib-devel >= 1:2.40.0
+BuildRequires:	glib-devel >= 1:2.42.0
 BuildRequires:	gnutls-devel
-BuildRequires:	gsettings-desktop-schemas-devel >= 3.12.0
+BuildRequires:	gsettings-desktop-schemas-devel >= 3.14.0
 BuildRequires:	intltool
 BuildRequires:	libproxy-devel
 BuildRequires:	libtool
@@ -20,7 +20,8 @@ BuildRequires:	p11-kit-devel
 BuildRequires:	pkg-config
 Requires(post,postun):	glib-gio >= 1:2.40.0
 # org.gnome.system.proxy.gschema.xml
-Requires:	gsettings-desktop-schemas >= 3.12.0
+Requires:	glib >= 1:2.42.0
+Requires:	gsettings-desktop-schemas >= 3.14.0
 Requires:	ca-certificates
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -40,8 +41,7 @@ implementation and a gnutls-based GTlsConnection implementation.
 %{__automake}
 %configure \
 	--disable-silent-rules	\
-	--disable-static	\
-	--with-ca-certificates=/etc/certs/ca-certificates.crt
+	--disable-static
 %{__make}
 
 %install
